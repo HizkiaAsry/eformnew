@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eformnew", "eformnew\eformnew.csproj", "{2ADE96CA-2869-415A-A5BC-2695B68AE2CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2ADE96CA-2869-415A-A5BC-2695B68AE2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ADE96CA-2869-415A-A5BC-2695B68AE2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ADE96CA-2869-415A-A5BC-2695B68AE2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ADE96CA-2869-415A-A5BC-2695B68AE2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC537F9C-2BF7-420F-8917-7252B9E7A7C3}
+	EndGlobalSection
+EndGlobal
