@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
@@ -23,22 +19,38 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
+        string fileExtension = "";
+
         Document document = new Document();
         document.LoadFromFile(Server.MapPath("~/document/SoD.docx"));
-        Spire.Doc.Section section = document.AddSection();
+     
 
-        //Isi
-        DataTable dt = getData(TextBox1.Text);
+        //Get From DB
+        /**DataTable dt = getData(TextBox1.Text);
         if (dt.Rows.Count > 0)
         {
             document.Replace("[NO_PERMIT]", dt.Rows[0]["NO_PERMIT"].ToString(), true, true);
             document.Replace("[LOKASI]", dt.Rows[0]["LOKASI_PEKERJAAN"].ToString(), true, true);
         }
+        **/
+        document.Replace("[EQUIP_NO]","IS/PH177", true, true);
+        document.Replace("[EQUIP_DESC1]", "Samsung", true, true);
+        document.Replace("[EQUIP_DESC2]", "Mobile Phone", true, true);
 
-        string loc = Server.MapPath("~/document/SoD" + TextBox1.Text + ".pdf");
+
+        string loc = Server.MapPath("~/document/hasil/SoD_" + TextBox1.Text + ".pdf");
 
         document.SaveToFile(loc, Spire.Doc.FileFormat.PDF);
-               
+
+        string filePath = Server.MapPath("~/document/hasil/SoD_" + TextBox1.Text + ".pdf");
+        fileExtension = System.IO.Path.GetExtension(filePath).ToLower();
+        if (fileExtension == ".pdf")
+        {
+            Response.ContentType = "application/pdf";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(filePath));
+            Response.WriteFile(filePath);
+            Response.End();
+        }
     }
 
     public string koneksi()
